@@ -17,7 +17,7 @@ export class FakeUserListComponent {
   utilisateurs: any[];
 
   constructor() {
-    setTimeout(() => this.utilisateurs = donnees, 500);
+    setTimeout(() => this.utilisateurs = donnees, 2_500);
   }
 
   bonjour(utilisateur, _: MouseEvent): void {

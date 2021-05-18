@@ -18,12 +18,12 @@
       <td>{{ u.prenom }}</td>
       <td>{{ u.dateDeNaissance|date:'dd/MM/yyyy' }}</td>
       <td>
-        <button (click)="bonjour(u, $event)">Dire bonjour</button>
+        <button mat-raised-button color="primary" (click)="bonjour(u, $event)">Dire bonjour</button>
       </td>
     </tr>
   </tbody>
 </table>
 
 <ng-template #loading>
-  Chargement en cours...
+  <mat-spinner></mat-spinner>
 </ng-template>
