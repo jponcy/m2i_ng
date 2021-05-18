@@ -1,0 +1,29 @@
+<p>
+  {{ utilisateurs | json }}
+</p>
+
+<table *ngIf="utilisateurs; else loading">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Né le</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let u of utilisateurs">
+      <td>{{ u.nom|titlecase }}</td>
+      <td>{{ u.prenom }}</td>
+      <td>{{ u.dateDeNaissance|date:'dd/MM/yyyy' }}</td>
+      <td>
+        <button (click)="bonjour(u, $event)">Dire bonjour</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #loading>
+  Chargement en cours...
+</ng-template>
