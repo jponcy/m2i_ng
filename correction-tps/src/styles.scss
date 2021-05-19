@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+// div {
+//   color: red;
+//   background-color: beige;
+// }
+
+// Commentaire SASS (NE sera PAS présent dans le CSS final/généré).
+/* Commentaire CSS (sera présent dans le CSS final). */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+label::first-letter { text-transform: uppercase; }
+
+@media screen and (min-width: 800px) {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+
+    mat-card { // .cards mat-card
+      width: 300px;
+      margin: 5px;
+    }
+  }
+}
+
+mat-card-actions button {
+  text-transform: uppercase;
+}
+
+mat-card-header.game {
+  display: flex;
+
+  .spacer { flex-grow: 1 }
+}

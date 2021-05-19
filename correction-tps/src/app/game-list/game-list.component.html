@@ -1,0 +1,28 @@
+<app-game-list-filter></app-game-list-filter>
+
+<div class="cards">
+  <mat-card *ngFor="let game of games">
+    <mat-card-header class="game">
+      <div>
+        <mat-card-title>{{ game.name }}</mat-card-title>
+        <mat-card-subtitle>{{ game.category.label }}</mat-card-subtitle>
+      </div>
+      <div class="spacer"></div>
+      <div>
+        {{ game.note }}/10
+      </div>
+    </mat-card-header>
+
+    <img mat-card-image [src]="game.coverImage" [alt]="'Image de présentation du jeu ' + game.name">
+
+    <mat-card-content>
+      <p>{{ sliceWords(game.description) }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button>follow</button>
+      <button mat-button>share</button>
+      <button mat-button>buy</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
