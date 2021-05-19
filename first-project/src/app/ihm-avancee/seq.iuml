@@ -1,0 +1,6 @@
+ihm_avance  ->  gen-number
+                génère un nouveau nombre toutes les secondes
+                * stock le nombre généré dans "nb"
+intercepte  <-  * envoi du nombre généré au composant parent/
+                  englobant (par le biais de l'output "generation")
+traite la valeur

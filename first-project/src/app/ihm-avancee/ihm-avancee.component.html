@@ -1,0 +1,37 @@
+<ul *ngIf="todos?.length; else noTodos">
+  <ng-container *ngFor="let t of todos">
+    <li *ngIf="t.finished === false">
+      {{ t.label }}
+    </li>
+  </ng-container>
+</ul>
+
+<ng-template #noTodos>
+  <p style="color: red; ">
+    Aucune tâche.
+  </p>
+</ng-template>
+
+
+<form action="">
+  <app-mon-input
+    (empty)="onEmpty('nom', $event)"
+    label="Nom"></app-mon-input>
+
+  <app-mon-input
+    (empty)="onEmpty('prenom', $event)"
+    label="Prenom"></app-mon-input>
+
+  <app-mon-input
+    (empty)="onEmpty('courriel', $event)"
+    [label]="'Email'"></app-mon-input>
+</form>
+
+
+<app-gen-number duration="5000" (generation)="onNbGeneration($event)"></app-gen-number>
+
+<p>
+  Valeurs envoyées : {{ valeurs|json }}
+  <br>
+  Valeur moyenne : {{ valeurMoyenne() }}
+</p>

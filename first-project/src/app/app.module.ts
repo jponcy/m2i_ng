@@ -8,12 +8,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
+import { IhmAvanceeComponent } from './ihm-avancee/ihm-avancee.component';
+import { MonInputComponent } from './ihm-avancee/mon-input/mon-input.component';
+import { GenNumberComponent } from './ihm-avancee/gen-number/gen-number.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstSubComponent,
-    FakeUserListComponent
+    FakeUserListComponent,
+    IhmAvanceeComponent,
+    MonInputComponent,
+    GenNumberComponent
   ],
   imports: [
     BrowserModule,
