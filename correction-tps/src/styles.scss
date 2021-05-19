@@ -10,23 +10,43 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+// -----------------
+// ----- FORM ------
 
-label::first-letter { text-transform: uppercase; }
+form.inline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+
+  mat-form-field  { margin: 5px; }
+  .break          { flex-basis: 100%; }
+  .actions        { margin-top: 0; }
+}
+
+mat-label::first-letter { text-transform: uppercase; }
+
+// -----------------
+// ----- CARDS -----
+
+.cards mat-card:not(:last-of-type) { margin-bottom: 5px; }
 
 @media screen and (min-width: 800px) {
   .cards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
     mat-card { // .cards mat-card
       width: 300px;
       margin: 5px;
+      display: flex;
+      flex-direction: column;
     }
-  }
-}
 
-mat-card-actions button {
-  text-transform: uppercase;
+    mat-card-content { flex-grow: 1; }
+  }
 }
 
 mat-card-header.game {
@@ -34,3 +54,5 @@ mat-card-header.game {
 
   .spacer { flex-grow: 1 }
 }
+
+mat-card-actions button { text-transform: uppercase; }

@@ -51,7 +51,7 @@ Ajout du tableau défini dans le TS.
 
 
 <!-- Formulaire avec angular Material. -->
-<form>
+<form class="inline">
   <mat-form-field>
     <mat-label>Nom du jeu</mat-label>
     <input matInput type="text" name="game_name" autocomplete="off">
@@ -70,6 +70,10 @@ Ajout du tableau défini dans le TS.
     <input matInput type="text" name="game_editor" autocomplete="off">
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Filtrer</button>
-  <button mat-raised-button color="accent" type="reset">RAZ</button>
+  <div class="break"></div>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit">Filtrer</button>
+    <button mat-raised-button color="accent" type="reset">RAZ</button>
+  </div>
 </form>
