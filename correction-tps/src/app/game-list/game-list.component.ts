@@ -80,14 +80,15 @@ export class GameListComponent implements OnInit {
   onShare(game: Game): void {
     window.alert('User \'share\' ' + game.name);
   }
+
   onBuy(game: Game): void {
     window.alert('User \'buy\' ' + game.name);
   }
 
 
-  // onActionClick(action: string, game: Game): void {
-  //   window.alert('User \'' + action + '\' ' + game.name);
-  // }
+  onActionClick(action: string, game: Game): void {
+    window.alert('User \'' + action + '\' ' + game.name);
+  }
 
   // onClickEvent(event: MouseEvent): void {
   //   const btn = event.target as HTMLButtonElement;
