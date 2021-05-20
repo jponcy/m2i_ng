@@ -1,6 +1,36 @@
-ihm_avance  ->  gen-number
-                génère un nouveau nombre toutes les secondes
-                * stock le nombre généré dans "nb"
-intercepte  <-  * envoi du nombre généré au composant parent/
-                  englobant (par le biais de l'output "generation")
-traite la valeur
+' ihm_avance  ->  gen-number
+'                 génère un nouveau nombre toutes les secondes
+'                 * stock le nombre généré dans "nb"
+' intercepte  <-  * envoi du nombre généré au composant parent/
+'                   englobant (par le biais de l'output "generation")
+' traite la valeur
+
+@startuml Output Sequence
+title: Exemple de @Output avec le générateur de nombre
+
+participant IhmAvanceeComponent as ihm
+participant GenNumberComponent as gen
+
+[->ihm: Initialisation de la vue
+activate ihm
+ihm -> gen: Inclusion du composant
+
+gen->gen: génération d'un nombre aléatoire
+activate gen
+@enduml
+
+
+@startuml Output Activity
+|GenNumberComponent|
+start
+:Génération d'une valeur;
+:Envoie de la valeur par\nl'@Output "generation";
+|#Beige|IhmAvanceeComponent|
+if (s'est lié à l'événement avec\n(generation)="function()") then (oui)
+  :appel la foonction;
+  :traîte la valeur;
+else (non)
+  end
+endif
+stop
+@enduml

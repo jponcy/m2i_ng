@@ -11,6 +11,12 @@ import { MatCardModule } from '@angular/material/card';
 import { IhmAvanceeComponent } from './ihm-avancee/ihm-avancee.component';
 import { MonInputComponent } from './ihm-avancee/mon-input/mon-input.component';
 import { GenNumberComponent } from './ihm-avancee/gen-number/gen-number.component';
+import { IncrementComponent } from './demo-event/increment.component';
+import { CycleDeVieComponent } from './demo-event/cycle-de-vie.component';
+import { OutputParentComponent } from './demo-event/output-parent.component';
+import { OutputEnfantComponent } from './demo-event/output-enfant.component';
+import { InputEnfantComponent } from './demo-event/input-enfant.component';
+import { InputParentComponent } from './demo-event/input-parent.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,13 @@ import { GenNumberComponent } from './ihm-avancee/gen-number/gen-number.componen
     FakeUserListComponent,
     IhmAvanceeComponent,
     MonInputComponent,
-    GenNumberComponent
+    GenNumberComponent,
+    IncrementComponent,
+    CycleDeVieComponent,
+    OutputParentComponent,
+    OutputEnfantComponent,
+    InputEnfantComponent,
+    InputParentComponent
   ],
   imports: [
     BrowserModule,
