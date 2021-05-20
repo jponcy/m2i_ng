@@ -10,6 +10,8 @@ import { allGameCategories, Game } from './models';
 })
 export class GameListComponent implements OnInit {
 
+  // win = window; // Permettrait de rendre disponible la fonction alert directement dans le template.
+
   games: Game[] = [
     {
       id: 1,
@@ -30,17 +32,17 @@ export class GameListComponent implements OnInit {
     },
     {
       id: 1,
-      name: 'BattleBlock Theater',
+      name: 'Fifa 2020',
       category: allGameCategories[2],
-      note: 9.8,
+      note: 9.7,
       coverImage: 'https://cdn.cloudflare.steamstatic.com/steam/apps/238460/header.jpg?t=1599169670',
       description: `Lorem ipsum doloris!`
     },
     {
       id: 1,
-      name: 'BattleBlock Theater',
+      name: 'BattleFront II',
       category: allGameCategories[2],
-      note: 9.8,
+      note: 9.6,
       coverImage: 'https://cdn.cloudflare.steamstatic.com/steam/apps/238460/header.jpg?t=1599169670',
       description: `Échoué… capturé… trahi… contraint de se donner en spectacle devant un public félin !? Oui, tout
         ça et bien plus encore dans BattleBlock Theater ! Une fois lancé dans votre quête pour libérer plus de 300 de
@@ -70,4 +72,28 @@ export class GameListComponent implements OnInit {
 
     return result;
   }
+
+  onFollow(game: Game): void {
+    window.alert('User \'follow\' ' + game.name);
+  }
+
+  onShare(game: Game): void {
+    window.alert('User \'share\' ' + game.name);
+  }
+  onBuy(game: Game): void {
+    window.alert('User \'buy\' ' + game.name);
+  }
+
+
+  // onActionClick(action: string, game: Game): void {
+  //   window.alert('User \'' + action + '\' ' + game.name);
+  // }
+
+  // onClickEvent(event: MouseEvent): void {
+  //   const btn = event.target as HTMLButtonElement;
+  //   const action = btn.innerText;
+  //   const gameName = btn.dataset.game;
+
+  //   window.alert('User \'' + action + '\' ' + gameName);
+  // }
 }

@@ -20,9 +20,20 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-button>follow</button>
-      <button mat-button>share</button>
-      <button mat-button>buy</button>
+      <!-- Première solution pour le TP 1 (certainement la meilleur dans le temps car les conséquences à faire seront très certainement très différentes entre buy/follow/share). -->
+      <button mat-button (click)="onFollow(game)">follow</button>
+      <button mat-button (click)="onShare(game)">share</button>
+      <button mat-button (click)="onBuy(game)">buy</button>
+
+      <!-- Pour l'instant, on peut utiliser la même méthode (car les processes sont très proches). -->
+      <!-- <button mat-button (click)="onActionClick('follow', game)">follow</button>
+      <button mat-button (click)="onActionClick('share', game)">share</button>
+      <button mat-button (click)="onActionClick('buy', game)">buy</button> -->
+
+      <!-- Une autre posibilité (pas très Angular) : -->
+      <!-- <button mat-button [attr.data.game]="game.name" (click)="onClickEvent($event)">follow</button>
+      <button mat-button [attr.data.game]="game.name" (click)="onClickEvent($event)">share</button>
+      <button mat-button [attr.data.game]="game.name" (click)="onClickEvent($event)">buy</button> -->
     </mat-card-actions>
   </mat-card>
 </div>
