@@ -1,0 +1,79 @@
+<!-- Formulaire comme en HTML.
+<form>
+  <div>
+    <label for="name">Nom du jeu</label>
+    <input type="text" name="game_name" id="name">
+  </div>
+
+  <div>
+    <label for="category">Type du jeu</label>
+    <select name="game_category" id="category">
+      <option></option>
+      <option>RTS</option>
+      <option>FPS</option>
+      <option>Jeu de platform multijoueur</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="editor">éditeur du jeu</label>
+    <input type="text" name="game_editor" id="editor">
+  </div>
+
+  <input type="submit" value="Filtrer">
+  <input type="reset" value="RAZ">
+</form> -->
+
+<!--
+Ajout du tableau défini dans le TS.
+<form>
+  <div>
+    <label for="name">Nom du jeu</label>
+    <input type="text" name="game_name" id="name">
+  </div>
+
+  <div>
+    <label for="category">Type du jeu</label>
+    <select name="game_category" id="category">
+      <option></option>
+      <option *ngFor="let cat of gameCategories" [value]="cat.id">{{ cat.label }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="editor">éditeur du jeu</label>
+    <input type="text" name="game_editor" id="editor">
+  </div>
+
+  <input type="submit" value="Filtrer">
+  <input type="reset" value="RAZ">
+</form> -->
+
+
+<!-- Formulaire avec angular Material. -->
+<form class="inline">
+  <mat-form-field>
+    <mat-label>Nom du jeu</mat-label>
+    <input matInput type="text" name="game_name" autocomplete="off">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Type du jeu</mat-label>
+    <mat-select name="game_category">
+      <mat-option></mat-option>
+      <mat-option *ngFor="let cat of gameCategories" [value]="cat.id">{{ cat.label }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>éditeur du jeu</mat-label>
+    <input matInput type="text" name="game_editor" autocomplete="off">
+  </mat-form-field>
+
+  <div class="break"></div>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit">Filtrer</button>
+    <button mat-raised-button color="accent" type="reset">RAZ</button>
+  </div>
+</form>
