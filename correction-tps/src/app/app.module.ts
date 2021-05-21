@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { GameActionsExo2Component } from './game-list/game-actions-exo2.component';
 import { GameActionsExo3Component } from './game-list/game-actions-exo3.component';
+import { GameActionsExo4Component } from './game-list/game-actions-exo4.component';
 import { GameListFilterComponent } from './game-list/game-list-filter.component';
 import { GameListComponent } from './game-list/game-list.component';
 
@@ -19,7 +20,8 @@ import { GameListComponent } from './game-list/game-list.component';
     GameListComponent,
     GameListFilterComponent,
     GameActionsExo2Component,
-    GameActionsExo3Component
+    GameActionsExo3Component,
+    GameActionsExo4Component
   ],
   imports: [
     // Angular modules.

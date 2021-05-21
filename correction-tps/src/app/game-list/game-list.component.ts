@@ -1,3 +1,4 @@
+import { ActionType } from './game-actions-exo4.component';
 import { Component, OnInit } from '@angular/core';
 
 import { allGameCategories, Game } from './models';
@@ -88,6 +89,24 @@ export class GameListComponent implements OnInit {
 
   onActionClick(action: string, game: Game): void {
     window.alert('User \'' + action + '\' ' + game.name);
+  }
+
+  onActionClickEnumNumber(actionType: ActionType, game: Game): void {
+    let action: string;
+
+    switch (actionType) {
+      case ActionType.FOLLOW:
+        action = 'follow';
+        break;
+      case ActionType.SHARE:
+        action = 'share';
+        break;
+      case ActionType.BUY:
+        action = 'buy';
+        break;
+    }
+
+    this.onActionClick(action, game);
   }
 
   // onClickEvent(event: MouseEvent): void {

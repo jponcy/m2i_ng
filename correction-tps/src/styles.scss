@@ -43,11 +43,15 @@ mat-label::first-letter { text-transform: uppercase; }
       margin: 5px;
       display: flex;
       flex-direction: column;
+
+      &:hover { border: 1px solid black; }
     }
 
     mat-card-content { flex-grow: 1; }
   }
 }
+
+// mat-card:hover { border: 1px solid black; }
 
 mat-card-header.game {
   display: flex;

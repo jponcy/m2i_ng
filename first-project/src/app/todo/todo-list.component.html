@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let t of todos; index as i">
+    <button (click)="onDelete(i, t)" mat-button color="accent" type="button">X</button>
+    {{ t.id }} - {{ t.label }}
+    <!-- <br>
+    <p [innerHTML]="t.description"></p> -->
+  </li>
+</ul>
