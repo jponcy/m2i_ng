@@ -1,4 +1,22 @@
-<app-todo-list></app-todo-list>
+<header>
+  <nav>
+    <ul>
+      <!-- La directive routerLink remplacera l'utilisation des attributs href -->
+      <li><a routerLink="/todo">Gestion des tâches</a></li>
+      <li><a routerLink="/exemple-ihm-avancee">Exemple "avancé" sur les IHM</a></li>
+      <li><a routerLink="/exemple-input">Exemple d'utilisation des @Input</a></li>
+      <li><a routerLink="/exemple-output">Exemple d'utilisation des @Output</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <h1>Mon premier site avec Angular</h1>
+
+  <!-- router-outlet permet de dire à Angular où placer le composant déterminé par le routing.-->
+<router-outlet></router-outlet>
+</main>
+
+<!-- <app-todo-list></app-todo-list> -->
 
 <!-- <app-utilisation-service></app-utilisation-service> -->
 

@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CycleDeVieComponent } from './demo-event/cycle-de-vie.component';
@@ -20,7 +21,8 @@ import { IhmAvanceeComponent } from './ihm-avancee/ihm-avancee.component';
 import { MonInputComponent } from './ihm-avancee/mon-input/mon-input.component';
 import { BasesComponent } from './observers/bases.component';
 import { UtilisationServiceComponent } from './observers/utilisation-service.component';
-import { TodoListComponent } from './todo/todo-list.component';
+import { TodoModule } from './todo/todo.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -37,8 +39,7 @@ import { TodoListComponent } from './todo/todo-list.component';
     InputEnfantComponent,
     InputParentComponent,
     BasesComponent,
-    UtilisationServiceComponent,
-    TodoListComponent
+    UtilisationServiceComponent
   ],
   imports: [
     // Angular.
@@ -49,9 +50,12 @@ import { TodoListComponent } from './todo/todo-list.component';
     // Material.
     MatButtonModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+
+    // Nos modules.
+    AppRoutingModule, // 5) Routing - Importer/utiliser le module de routing (s'utilise dans AppModule)
+    TodoModule, SharedModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
