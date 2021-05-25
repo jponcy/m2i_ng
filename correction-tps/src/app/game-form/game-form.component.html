@@ -1,3 +1,93 @@
 <h1>{{ title }}</h1>
 
-<button mat-raised-button color="primary" [routerLink]="['..']">Retour à la liste</button>
+<form [formGroup]="form" (submit)="onSubmit()" *ngIf="loaded; else loading" class="row">
+  <!-- <mat-form-field apparence="outline">
+    <mat-label>Nom du jeu</mat-label>
+    <input matInput formControlName="title">
+    <mat-error *ngIf="form.controls.title.hasError('required')">Ce champ est requis</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Genres</mat-label>
+    <mat-select formControlName="genres" multiple>
+      <mat-option *ngFor="let genre of genres$|async" [value]="genre.label">
+        {{ genre.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field apparence="outline">
+    <mat-label>Editeur</mat-label>
+    <input matInput formControlName="publisher">
+  </mat-form-field>
+
+  <mat-form-field apparence="outline">
+    <mat-label>Dév</mat-label>
+    <input matInput formControlName="developer">
+  </mat-form-field>
+
+  <mat-form-field apparence="outline">
+    <mat-label>Image de couverture</mat-label>
+    <input matInput formControlName="coverImage">
+
+    <img
+      *ngIf="form.controls.coverImage.value"
+      alt="Prévisualisation de l'image"
+      [src]="form.controls.coverImage.value">
+  </mat-form-field> -->
+
+  <div class="col-sm-12 col-md-6 col-xl-4 row">
+    <mat-form-field apparence="outline" class="col-sm-12">
+      <mat-label>Nom du jeu</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="form.controls.title.hasError('required')">Ce champ est requis</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-sm-12">
+      <mat-label>Genres</mat-label>
+      <mat-select formControlName="genres" multiple>
+        <mat-option *ngFor="let genre of genres$|async" [value]="genre.label">
+          {{ genre.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field apparence="outline" class="col-sm-12">
+      <mat-label>Editeur</mat-label>
+      <input matInput formControlName="publisher">
+    </mat-form-field>
+
+    <mat-form-field apparence="outline" class="col-sm-12">
+      <mat-label>Dév</mat-label>
+      <input matInput formControlName="developer">
+    </mat-form-field>
+  </div>
+
+  <div class="col-sm-12 col-md-6 col-xl-4">
+    <mat-form-field apparence="outline">
+      <mat-label>Image de couverture</mat-label>
+      <input matInput formControlName="coverImage">
+
+      <img
+        *ngIf="form.controls.coverImage.value"
+        alt="Prévisualisation de l'image"
+        [src]="form.controls.coverImage.value">
+    </mat-form-field>
+  </div>
+
+  <div class="col-sm-12 col-md-6 col-xl-4">
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" cdkTextareaAutosize></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="actions col-sm-12">
+    <button type="submit" mat-raised-button color="primary">Enregistrer</button>
+    <button mat-raised-button color="accent" routerLink="/product">Annuler</button>
+  </div>
+</form>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

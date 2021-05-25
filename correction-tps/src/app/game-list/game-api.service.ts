@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { delay, map } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { Game, GameCategory } from './models';
+import { Cacheable } from 'ts-cacheable';
 
 /**
  * Créé avec : ng generate service game-list/game-api --skip-tests
@@ -14,7 +16,8 @@ export class GameApiService {
 
   constructor(private readonly http: HttpClient) { }
 
-  getAllGenres(): Observable</* GameCategory[] */ any> {
+  @Cacheable({ maxAge: 60_000 })
+  getAllGenres(): Observable<GameCategory[]> {
     // Le champs label (dans notre code Angular) se nomme name (dans l'API).
     // Cela pose problème pour faire la liaison. Je dois gérer ce cas. Les principales possibilités sont :
     // 1) renommer notre attribut dans notre (Angular) et bien impacter ce changement partout
@@ -46,8 +49,7 @@ export class GameApiService {
   }
 
   getAll(): Observable<Game[]> {
-    return this.http.get<Game[]>('http://localhost:3000/games')
-        .pipe(delay(200));
+    return this.http.get<Game[]>('http://localhost:3000/games');
   }
 
   delete(id: number): Observable<void> {
@@ -56,8 +58,15 @@ export class GameApiService {
   }
 
   getOne(id: number): Observable<Game> {
-    return this.http.get<any>(`http://localhost:3000/games/${id}`)
-        .pipe(map(({ name: label, ...others }) => ({ ...others, label })));
+    return this.http.get<Game>(`http://localhost:3000/games/${id}`);
+  }
+
+  create(game: Game): Observable<Game> {
+    return this.http.post<Game>('http://localhost:3000/games', game);
+  }
+
+  update(id: number, game: Game): Observable<Game> {
+    return this.http.put<Game>(`http://localhost:3000/games/${id}`, game);
   }
 
   /**

@@ -17,10 +17,14 @@ h1 { text-transform: uppercase; }
 // -----------------
 // ----- FORM ------
 
-form.inline {
+%flex-h-center {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+form.inline {
+  @extend %flex-h-center;
   align-items: center;
   margin-bottom: 15px;
 
@@ -28,6 +32,24 @@ form.inline {
   .break          { flex-basis: 100%; }
   .actions        { margin-top: 0; }
 }
+
+
+form:not(.inline) {
+  .actions { @extend %flex-h-center; }
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   margin: 20px;
+
+//   &>mat-form-field,
+//   &>.action {
+//     width: 100%;
+//     margin: auto;
+//     display: block;
+//   }
+}
+
+textarea { width: 100%; }
 
 mat-label::first-letter { text-transform: uppercase; }
 
@@ -64,3 +86,6 @@ mat-card-header.game {
 }
 
 mat-card-actions button { text-transform: uppercase; }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

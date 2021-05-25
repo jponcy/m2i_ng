@@ -9,6 +9,7 @@ import { GameListModule } from './game-list/game-list.module';
 import { SharedModule } from './shared/shared.module';
 import { GameDetailsModule } from './game-details/game-details.module';
 import { GameFormModule } from './game-form/game-form.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GameFormModule } from './game-form/game-form.module';
     GameListModule,
     SharedModule,
     GameDetailsModule,
-    GameFormModule
+    GameFormModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

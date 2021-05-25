@@ -18,9 +18,6 @@ import { GameDetailsComponent } from './game-details.component';
     SharedModule,
 
     // Material modules.
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
     MatButtonModule,
   ],
   exports: [GameDetailsComponent]
