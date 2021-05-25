@@ -5,31 +5,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
-
 import { SharedModule } from '../shared/shared.module';
-import { GameListFilterComponent } from './game-list-filter.component';
-import { GameListComponent } from './game-list.component';
+
+import { GameDetailsComponent } from './game-details.component';
 
 @NgModule({
-  declarations: [
-    GameListComponent,
-    GameListFilterComponent
-  ],
-  exports: [
-    GameListComponent
-  ],
+  declarations: [GameDetailsComponent],
   imports: [
-    // Angular modules.
     CommonModule,
     RouterModule,
+
+    SharedModule,
 
     // Material modules.
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-
-    SharedModule // Importation groupée.
-  ]
+  ],
+  exports: [GameDetailsComponent]
 })
-export class GameListModule { }
+export class GameDetailsModule { }

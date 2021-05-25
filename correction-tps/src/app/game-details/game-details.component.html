@@ -1,0 +1,26 @@
+<button mat-raised-button color="primary" [routerLink]="['..']">Retour à la liste</button>
+
+<mat-card *ngIf="game$ | async as game; else loading">
+  <mat-card-header class="game">
+    <div>
+      <mat-card-title>{{ game.title }}</mat-card-title>
+      <mat-card-subtitle>{{ game.genres }}</mat-card-subtitle>
+    </div>
+    <div class="spacer"></div>
+    <div *ngIf="game.note !== undefined">
+      {{ game.note }}/10
+    </div>
+  </mat-card-header>
+
+  <img mat-card-image [src]="game.coverImage" [alt]="'Image de présentation du jeu ' + game.title">
+
+  <mat-card-content>
+    <!-- Attention au [innerHTML], il peut permettre des injections.-->
+    <p [innerHTML]="game.description">
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

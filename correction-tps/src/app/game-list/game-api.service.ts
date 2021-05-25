@@ -55,6 +55,11 @@ export class GameApiService {
     return this.http.delete<void>(`http://localhost:3000/games/${id}`);
   }
 
+  getOne(id: number): Observable<Game> {
+    return this.http.get<any>(`http://localhost:3000/games/${id}`)
+        .pipe(map(({ name: label, ...others }) => ({ ...others, label })));
+  }
+
   /**
    * Convertion "étendu" avec un algorithme détaillé.
    */
