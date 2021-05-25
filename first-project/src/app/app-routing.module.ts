@@ -15,11 +15,13 @@ import { InputParentComponent } from './demo-event/input-parent.component';
 import { OutputParentComponent } from './demo-event/output-parent.component';
 import { IhmAvanceeComponent } from './ihm-avancee/ihm-avancee.component';
 import { NotFoundComponent } from './shared/not-found.component';
+import { TodoCreateComponent } from './todo/todo-form/todo-create.component';
 import { TodoFormComponent } from './todo/todo-form/todo-form.component';
 import { TodoListComponent } from './todo/todo-list.component';
 
 // 2) Définir les routes
 const routes: Routes = [
+  { path: 'todo/new',             component: TodoCreateComponent },
   { path: 'todo/:id/edit',        component: TodoFormComponent },
   { path: 'todo',                 component: TodoListComponent },
   { path: 'exemple-ihm-avancee',  component: IhmAvanceeComponent },

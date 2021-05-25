@@ -1,0 +1,40 @@
+<div>
+  Valide ? {{ form.valid ? 'OUI' : 'NON' }}
+  <br>
+  {{ form.value | json }}
+</div>
+
+<form [formGroup]="form" (submit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Intitulé de la tâche</mat-label>
+    <!-- <input matInput [formControl]="label"> -->
+    <input matInput formControlName="label" autocomplete="off">
+
+    <mat-error *ngIf="label.hasError('required')">Ce champ est requis</mat-error>
+
+    <mat-error *ngIf="label.hasError('minlength')">
+      Intitulé trop petit (minimum: {{ label.getError('minlength').requiredLength }} caractères)
+    </mat-error>
+
+    <mat-error *ngIf="label.hasError('maxlength')">
+      Intitulé trop grand
+      ({{ label.getError('maxlength').actualLength }}
+      /
+      {{ label.getError('maxlength').requiredLength }} caractères)
+    </mat-error>
+
+    <mat-error *ngIf="label.hasError('pattern')">
+      Ce champ contient des valeurs intérdites. Merci de ne saisir que des lettres / espaces.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit">Créer</button>
+    <!-- <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Créer</button> -->
+  </div>
+</form>

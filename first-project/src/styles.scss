@@ -5,3 +5,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .box { border: 1px solid gray; }
+
+mat-form-field {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+}
+
+form .actions {
+  margin-top: 20px;
+}
