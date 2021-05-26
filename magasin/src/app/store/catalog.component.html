@@ -1,0 +1,72 @@
+<h1>Création d'un nouveau magasin dans le catalogue</h1>
+
+<form class="row col-sm-12" [formGroup]="form" (submit)="onSubmit()">
+  <div class="two-cols">
+    <fieldset class="col-sm-12 col-md-6">
+      <legend>Informations générales</legend>
+
+      <mat-form-field>
+        <mat-label>Nom du magasin</mat-label>
+        <input matInput formControlName="nom" type="text">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Adresse</mat-label>
+        <input matInput type="text">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Description du magasin</mat-label>
+        <textarea matInput cdkTextareaAutosize></textarea>
+      </mat-form-field>
+    </fieldset>
+
+    <fieldset class="col-sm-12 col-md-6">
+      <legend>Produits</legend>
+      <button mat-button color="primary" type="button" (click)="ajouterProduit()">+ Ajouter un produit</button>
+
+      <ng-template #noProducts>
+        <p class="warn">
+          Aucune produit.
+        </p>
+      </ng-template>
+
+      <table id="articles" *ngIf="champProduits?.controls?.length; else noProducts">
+        <thead>
+          <tr>
+            <th>Nom du produit</th>
+            <th>Prix</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- <tr *ngFor="let c of champProduits.controls; index as i">
+            <td>
+              <input [formControl]="champProduit(i).controls.nom" type="text">
+            </td>
+          </tr> -->
+
+          <tr *ngFor="let _ of champProduits.controls; index as i" formArrayName="produits">
+            <ng-container [formGroupName]="i">
+              <td>
+                <input formControlName="nom">
+              </td>
+              <td>
+                <input formControlName="prix" type="number">
+              </td>
+              <td>
+                <button mat-button color="accent" (click)="supprimerProduit(i)" type="button">Supprimer</button>
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" >Enregistrer</button>
+    <button mat-raised-button color="accent" type="reset" type="button">RAZ</button>
+  </div>
+</form>
